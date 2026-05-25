@@ -8,13 +8,13 @@ interface TokenPayload {
 
 export const generateAccessToken = (payload: TokenPayload): string => {
   return jwt.sign(payload, env.JWT_SECRET, {
-    expiresIn: env.JWT_EXPIRE as string,
+    expiresIn: env.JWT_EXPIRE as any,
   });
 };
 
 export const generateRefreshToken = (payload: TokenPayload): string => {
   return jwt.sign(payload, env.JWT_REFRESH_SECRET, {
-    expiresIn: env.JWT_REFRESH_EXPIRE as string,
+    expiresIn: env.JWT_REFRESH_EXPIRE as any,
   });
 };
 

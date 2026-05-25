@@ -4,7 +4,7 @@ A comprehensive, full-stack real estate property listing application. This platf
 
 ---
 
-## 🌟 Features
+##  Features
 
 - **Robust Authentication**: Secure registration and login using JWT access and refresh tokens.
 - **Role-Based Access Control**: Differentiated experiences for `agent` and `seeker` roles.
@@ -15,7 +15,7 @@ A comprehensive, full-stack real estate property listing application. This platf
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 18** & **Vite**
@@ -39,7 +39,7 @@ A comprehensive, full-stack real estate property listing application. This platf
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 ```
 ├── client/                 # React Frontend Application
@@ -70,7 +70,7 @@ A comprehensive, full-stack real estate property listing application. This platf
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Node.js** (v20+)
@@ -142,7 +142,7 @@ npm run dev
 
 ---
 
-## 🏗 Build & Deployment
+##  Build & Deployment
 
 To prepare the application for production deployment:
 
@@ -164,7 +164,7 @@ The output will be in the `client/dist` directory, which can be served using any
 
 ---
 
-## 👥 User Roles & Permissions
+##  User Roles & Permissions
 
 1. **Guest (Unauthenticated)**
    - Browse property listings.
@@ -186,7 +186,7 @@ The output will be in the `client/dist` directory, which can be served using any
 
 ---
 
-## 📖 API Documentation
+##  API Documentation
 
 Complete API Documentation is available in the root directory.
 - Detailed Markdown guide: [api-docs.md](./api-docs.md)
@@ -196,7 +196,7 @@ You can import the Postman Collection directly into your Postman workspace to in
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 - **MongoDB Connection Error**: Double-check your `MONGODB_URI` string in `.env`. If you are using IP whitelisting on MongoDB Atlas, ensure your current IP is whitelisted.
 - **Cloudinary Image Upload Fails**: Ensure `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` are correct in your `.env`. Check that the backend accepts the image size (limit is set to 5MB).
