@@ -67,7 +67,7 @@ const enquirySchema = new Schema<IEnquiry>(
 // Remove __v from JSON output
 enquirySchema.set('toJSON', {
   transform: (_doc, ret) => {
-    delete ret.__v;
+    delete (ret as any).__v;
     return ret;
   },
 });

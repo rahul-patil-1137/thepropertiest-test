@@ -81,9 +81,9 @@ userSchema.methods.comparePassword = async function (
 // Remove sensitive fields from JSON output
 userSchema.set('toJSON', {
   transform: (_doc, ret) => {
-    delete ret.password;
-    delete ret.refreshToken;
-    delete ret.__v;
+    delete (ret as any).password;
+    delete (ret as any).refreshToken;
+    delete (ret as any).__v;
     return ret;
   },
 });

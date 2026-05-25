@@ -152,7 +152,7 @@ propertySchema.index({ isActive: 1, type: 1, status: 1 });
 // Remove __v from JSON output
 propertySchema.set('toJSON', {
   transform: (_doc, ret) => {
-    delete ret.__v;
+    delete (ret as any).__v;
     return ret;
   },
 });
