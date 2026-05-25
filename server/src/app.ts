@@ -18,7 +18,11 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: [
+      env.CLIENT_URL, 
+      'http://localhost:5173', 
+      'https://thepropertiest-test-client.vercel.app'
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
