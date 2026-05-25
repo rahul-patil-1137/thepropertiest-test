@@ -9,7 +9,8 @@ import { uploadToCloudinary } from '../utils/cloudinary.js';
 const REFRESH_COOKIE_OPTIONS = {
   httpOnly: true,
   secure: env.NODE_ENV === 'production',
-  sameSite: 'strict' as const,
+  // Cross-origin client + API on separate Vercel domains requires SameSite=None
+  sameSite: (env.NODE_ENV === 'production' ? 'none' : 'lax') as 'none' | 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   path: '/',
 };

@@ -5,6 +5,7 @@ import rateLimit from 'express-rate-limit';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import { env } from './config/env.js';
+import { connectDB } from './config/db.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import authRoutes from './routes/auth.routes.js';
 import propertyRoutes from './routes/property.routes.js';
@@ -50,6 +51,16 @@ app.use(cookieParser());
 if (env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// MongoDB (required on Vercel serverless — server.ts connectDB is not used there)
+app.use(async (_req, _res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 // Health check
 app.get('/api/health', (_req, res) => {

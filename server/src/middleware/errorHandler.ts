@@ -76,6 +76,13 @@ export const errorHandler = (
     message = 'Token expired';
   }
 
+  // MongoDB connection failures (common on misconfigured Vercel/Atlas)
+  if (err.name === 'MongooseError' && err.message.includes('buffering timed out')) {
+    statusCode = 503;
+    message =
+      'Database connection failed. Check MONGODB_URI on Vercel and MongoDB Atlas network access (allow 0.0.0.0/0).';
+  }
+
   // Log in development
   if (process.env.NODE_ENV === 'development') {
     console.error('🔥 Error:', err);

@@ -2,7 +2,9 @@ import { z } from 'zod';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+// Local dev: repo-root .env. Vercel injects vars into process.env directly.
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
